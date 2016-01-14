@@ -1,0 +1,102 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    color:#292f33;
+    line-height:1.42;
+    font-size:14px;
+    overflow-x:hidden;
+}
+
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+}
+
+img {
+    vertical-align: middle;
+    border: 0;
+    max-width: 100%;
+}
+
+a {
+    color: #0084B4;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.b-tweet {
+    border: 1px solid #e1e8ed;
+    padding:10px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    word-wrap: break-word;
+    background:white;
+    &__content {
+        & > p:first-child {
+            margin-top:0;
+        }
+    }
+    &s-grid {
+        margin: 0 10px;
+        position: relative;
+		visibility:hidden;
+		&_completed {
+			visibility:visible;
+		}
+    
+    }
+    &__image {
+
+        display:block;
+        margin-bottom:10px;
+        width:100%;
+    }
+    &-cell {
+      padding: 5px;
+        position: absolute;
+        width: 33.33333%;
+      
+    }
+}
+
+@media screen and (max-width:1280px){
+    .b-tweet {
+        &-cell {
+            width:33.333333%;
+        }
+    }
+}
+
+@media screen and (max-width:1024px){
+    .b-tweet {
+        &-cell {
+            width:50%;
+        }
+    }
+}
+@media screen and (max-width:767px){
+    .b-tweet {
+        &-cell {
+            width:100%;
+        }
+    }
+}
+
+@media screen and (min-width:1281px) {
+    .b-tweet {
+        &-cell {
+            width: 20%;
+        }
+    }
+}
+

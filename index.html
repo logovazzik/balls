@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+  <html ng-app="app.tweets">
+<head>
+    <title>wrike</title>
+    <script src="scripts/jquery.js"></script>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/app/app.js"></script>
+    <script src="scripts/app/controllers/tweets.controller.js"></script>
+    <script src="scripts/app/services/tweets.service.js"></script>
+    <script src="scripts/app/factories/helpers.factory.js"></script>
+    <script src="scripts/app/directives/grid.directive.js"></script>
+    <script src="scripts/app/directives/repeat.directive.js"></script>
+    <script src="scripts/app/directives/load.directive.js"></script>
+    <script src="scripts/masonry.pkgd.js"></script>
+    <link href="Content/common.css" rel="stylesheet"/>
+  
+</head>
+      <body>
+          <div ng-controller="TweetsController as tweetsCtrl" ng-init="tweetsCtrl.getTweets('wrike',  101);">
+              <div class="b-tweets-grid"  ng-masonry="tweetsCtrl.gridOptions">
+                  <div class="b-tweet-cell" ng-repeat="tweet in tweetsCtrl.tweets" ng-repeat-done="tweetsCtrl.reflow(true)">
+                      <div class="b-tweet" ng-tweet>
+                          <!-- <pre>{{ tweet | json}}</pre> -->
+                          <div class="b-tweet__header">
+                              <strong class="b-tweet__user-name" ng-bind="::tweet.user.name"></strong>
+                              <a href="https://twitter.com/{{::tweet.user.screen_name}}"
+                                 class="b-tweet__user-link"
+                                 target="_blank">
+                                  @<span ng-bind="::tweet.user.screen_name"></span>
+                              </a>
+                          </div>
+                          <div class="b-tweet__content">
+                              <p ng-bind-html="::tweetsCtrl.sce.trustAsHtml(tweet.text)"></p>
+                              <div ng-if="::tweet.entities.media">
+                                  <img ng-repeat="media in ::tweet.entities.media"
+                                       ng-load="tweetsCtrl.reflow()"
+                                       ng-src="{{::media.media_url}}" class="b-tweet__image" />
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+         
+      </body>
+</html>  
