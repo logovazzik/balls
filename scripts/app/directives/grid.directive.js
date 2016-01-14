@@ -12,7 +12,7 @@
                         if($element.masonry){
 							$element.one('layoutComplete', function(){
 								$element.addClass(scope.settings.layoutCompleteClass);
-								console.log("completed")
+								
 							}).masonry('reloadItems').masonry('layout');
 						}
                     }, 300);
