@@ -78,3 +78,9 @@ a:hover {
     width: 20%;
   }
 }
+.b-reply-link:before {
+  content: "#";
+}
+.b-hashtag-link:before {
+  content: "@";
+}
